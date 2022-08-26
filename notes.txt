@@ -1,0 +1,35 @@
+file -> new ->maven project -> 
+internal 
+-> maven webapp 
+-> project name , artifcat and group 
+		spring-web-avengers 
+->finish 
+
+
+------------------------------------------------
+
+convert ->this app->into spring web app 
+	1)	spring core
+	2)	spring context
+	3)	spring bean
+	4)	spring el 
+	5)	spring web mvc* 
+	6)  servlet-api
+	
+2) we have to configure spring.xml 
+	ioc container --> 
+	
+	1)spring jsp secure ->
+			 jsp -> WEB-INF 
+					views -> 
+		InternalViewResolver 
+		
+	2) annotation , validation 
+			<mvc:annorationdriven>
+			
+	3) context 
+			<context:component-scan base-package="com" />
+			
+------------------------------------------------
+			
+	 
