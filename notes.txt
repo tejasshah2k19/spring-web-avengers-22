@@ -1,4 +1,5 @@
-file -> new ->maven project -> 
+eclipse ->
+	file -> new ->maven project -> 
 internal 
 -> maven webapp 
 -> project name , artifcat and group 
@@ -31,5 +32,74 @@ convert ->this app->into spring web app
 			<context:component-scan base-package="com" />
 			
 ------------------------------------------------
+		
+		AGAIN 
+		
+spring core 
+
+spring web 
+
+maven -> jar 
+
+eclipse -> 
+	file -> new -> maven project ->
+	internal-> webapp -> project name -> finish 
+
+	if java folder is missing inside main then add it. 
+	also create com folder inside java 
+
+	pom.xml 
+	1) servlet api 
+
+	index.jsp run  
+
+	support -> spring mvc  
+	
+	1) spring core 
+	2) spring context 
+	3) spring bean 
+	4) spring el 
+	5) spring web-mvc  
+-----------------------------------------------------------------------
+web.xml 
+	servlet
+
+IoC container / spring container  
+
+spring.xml -> WEB-INF [ create spring.xml in web-inf] 
+-----------------------------------------------------------------------
+ 
+
+FrontController -> 
+
+Right click on project -> then maven -> update maven project -> in this check force update tick mark -> finish 
+
+
+-----------------------------------------------------------------------
+
+1) annotation
+2) views 
+3) base-package 
+
+
+-----------------------------------------------------------------------------------------------
+
+
+ 1) class extends HttpServlet  ----    @Controller 
+ 2) service                    ----    n number of method 
+ 3) map servlet                ----    map method 
+
+
+
+
+
+
+
+
+
+
+
+		
+		
 			
 	 
