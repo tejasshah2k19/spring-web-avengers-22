@@ -1,8 +1,11 @@
 package com.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bean.UserBean;
 
 @Controller
 public class SessionController {
@@ -22,13 +25,15 @@ public class SessionController {
 		return "Login";// jsp
 	}
 
-	@PostMapping("/saveuser")
-	public String saveUser() {
-		// fn email password read
-		// bean
-		// validate
-		// db
+	@PostMapping("/saveuser") // data
+	public String saveUser(UserBean user, Model model) {
+		System.out.println(user.getFirstName());
+		System.out.println(user.getEmail());
+		System.out.println(user.getPassword());
 
-		return "Login";
+		// Model
+		model.addAttribute("user", user); // request.setAttribute("user",user);
+		return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
 	}
+	//
 }
