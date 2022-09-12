@@ -2,6 +2,7 @@ package com.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bean.CalcBean;
 import com.bean.UserBean;
+import com.dao.UserDao;
 
 @Controller
 public class SessionController {
@@ -18,6 +20,9 @@ public class SessionController {
 	// service
 
 	// method -> open -> jsp
+
+	@Autowired // depend. eject -> ioc container -> spring -> singleton
+	UserDao userDao;
 
 	@GetMapping("/signup")
 	public String openSignup() {
@@ -40,10 +45,10 @@ public class SessionController {
 
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + " : " + error.getDefaultMessage());
-				model.addAttribute(error.getField(),error.getDefaultMessage());
-			
+				model.addAttribute(error.getField(), error.getDefaultMessage());
+
 			}
-			model.addAttribute("user",user);
+			model.addAttribute("user", user);
 			return "Signup";
 		} else {
 
@@ -51,6 +56,7 @@ public class SessionController {
 			System.out.println(user.getEmail());
 			System.out.println(user.getPassword());
 
+			userDao.insertUser(user);
 			// Model
 			model.addAttribute("user", user); // request.setAttribute("user",user);
 			return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
