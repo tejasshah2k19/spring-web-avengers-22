@@ -1,7 +1,11 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,14 +31,30 @@ public class SessionController {
 	}
 
 	@PostMapping("/saveuser") // data
-	public String saveUser(UserBean user, Model model) {
-		System.out.println(user.getFirstName());
-		System.out.println(user.getEmail());
-		System.out.println(user.getPassword());
+	public String saveUser(@Valid UserBean user, BindingResult result, Model model) {
 
-		// Model
-		model.addAttribute("user", user); // request.setAttribute("user",user);
-		return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
+		if (result.hasErrors()) {
+
+//			System.out.println(result.getAllErrors());
+			System.out.println(result.getFieldErrors());// List
+
+			for (FieldError error : result.getFieldErrors()) {
+				System.out.println(error.getField() + " : " + error.getDefaultMessage());
+				model.addAttribute(error.getField(),error.getDefaultMessage());
+			
+			}
+
+			return "Signup";
+		} else {
+
+			System.out.println(user.getFirstName());
+			System.out.println(user.getEmail());
+			System.out.println(user.getPassword());
+
+			// Model
+			model.addAttribute("user", user); // request.setAttribute("user",user);
+			return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
+		}
 	}
 	//
 

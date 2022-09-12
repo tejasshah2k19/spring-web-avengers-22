@@ -89,7 +89,21 @@ Right click on project -> then maven -> update maven project -> in this check fo
  2) service                    ----    n number of method 
  3) map servlet                ----    map method 
 
+-----------------------------------------------------------------------------------------------
 
+Calc.jsp 
+	no.1 : [  20  ] 
+	no.2 : [  30  ] 
+			Add 
+			
+Output.jsp 
+	20 + 30  = 50 
+
+--------------------------------------
+
+validation 
+1) hibernate-validator 
+2) 
 
 
 
