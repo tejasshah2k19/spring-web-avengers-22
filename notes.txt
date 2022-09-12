@@ -112,13 +112,14 @@ db connection
 
 1) pom.xml -> spring-jdbc , db driver 
 2) spring.xml -> connection -> 
-         DriverManagerDataSource
-        
+         DriverManagerDataSource { Connection } 
+		 JdbcTempalte { PreparedStatment }   		      
+ 
+ 
  How to use PD ADMIN !!!! 
          
 -------------------------------------
-PreparedStatment !!
-
+  
 
 
 
