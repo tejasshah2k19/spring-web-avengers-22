@@ -17,11 +17,16 @@
 	FirstName : ${user.firstName}
 	<br> Email : ${user.email}
 	<br> Password : ${user.password }
+	<br> Gender: ${user.gender }
+	<br> Hobby: ${user.hobby }
 	<br> ------------------------------------
-	
+
 	<br> FirstName :
 	<%=user.getFirstName()%><Br> Email :
 	<%=user.getEmail()%><Br> Password :
 	<%=user.getPassword()%>
+	<br>Gender:<%=user.getGender()%>
+	<br>Hobby:
+	<%=user.getHobby()%>
 </body>
 </html>

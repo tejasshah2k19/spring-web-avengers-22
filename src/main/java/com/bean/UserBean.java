@@ -13,6 +13,12 @@ public class UserBean {
 	@NotBlank(message = "Please Enter Password")
 	String password;
 
+	@NotBlank(message = "Please Select Gender")
+	String gender;
+
+	@NotBlank(message = "Please Select atleast 1 hobby")
+	String hobby;
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -35,6 +41,22 @@ public class UserBean {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
 	}
 
 }

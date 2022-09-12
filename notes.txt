@@ -103,11 +103,27 @@ Output.jsp
 
 validation 
 1) hibernate-validator 
-2) 
+2) @NotBlank
+3) @Valid 
+
+
+--------------------------------------
+db connection 
+
+1) pom.xml -> spring-jdbc , db driver 
+2) spring.xml -> connection -> 
+         DriverManagerDataSource
+        
+ How to use PD ADMIN !!!! 
+         
+-------------------------------------
+PreparedStatment !!
 
 
 
 
+         
+         
 
 
 

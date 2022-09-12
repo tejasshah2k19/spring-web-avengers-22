@@ -43,7 +43,7 @@ public class SessionController {
 				model.addAttribute(error.getField(),error.getDefaultMessage());
 			
 			}
-
+			model.addAttribute("user",user);
 			return "Signup";
 		} else {
 
