@@ -3,7 +3,8 @@ package com.bean;
 import javax.validation.constraints.NotBlank;
 
 public class UserBean {
-
+	int userId;
+	
 	@NotBlank(message = "Please Enter FirstName")
 	String firstName;
 
@@ -18,6 +19,15 @@ public class UserBean {
 
 	@NotBlank(message = "Please Select atleast 1 hobby")
 	String hobby;
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public String getFirstName() {
 		return firstName;

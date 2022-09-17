@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,4 +95,11 @@ public class SessionController {
 		return "Ans";
 	}
 
+	@GetMapping("/listusers")
+	public String listUsers(Model model) {
+	 
+		List<UserBean> users = userDao.getAllUsers(); 	
+		model.addAttribute("users",users);
+		return "ListUser";
+	}
 }
