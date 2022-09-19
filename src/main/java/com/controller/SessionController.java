@@ -128,4 +128,20 @@ public class SessionController {
 		return "ListUser";
 	}
 
+	@GetMapping("/edituser")
+	public String editUser(@RequestParam("userId") int userId,Model model) {
+		UserBean user = userDao.getUserByUserId(userId); 
+		model.addAttribute("user",user);
+		return "EditUser";
+	}
+	
+	@PostMapping("/updateuser")
+	public String updateUser(UserBean user) {
+		userDao.updateUser(user);
+		return "redirect:/listusers";
+	}
+	
+	
+	
+
 }

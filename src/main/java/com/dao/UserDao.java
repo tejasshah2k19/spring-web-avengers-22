@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bean.UserBean;
+
 @Repository
 public class UserDao {
 
@@ -25,11 +26,24 @@ public class UserDao {
 	}
 
 	public List<UserBean> getUserByName(String search) {
-		List<UserBean> users = stmt.query("select * from users where firstname like ? ", new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {search});
+		List<UserBean> users = stmt.query("select * from users where firstname like ? ",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class), new Object[] { search });
 		return users;
 	}
-	
+
 	public void deleteUser(int userId) {
-		stmt.update("delete from users where userid = ?",userId);
+		stmt.update("delete from users where userid = ?", userId);
 	}
+
+	public UserBean getUserByUserId(int userId) {
+		UserBean user =  stmt.queryForObject("select * from users where userId = ? ",
+				new BeanPropertyRowMapper<UserBean>(UserBean.class), new Object[] { userId });
+		return user;
+	}
+
+	
+	public void updateUser(UserBean user) {
+		stmt.update("update users set firstname = ? , email = ? , password = ?  where userid = ? ",user.getFirstName(),user.getEmail(),user.getPassword(),user.getUserId());
+	}
+	
 }
