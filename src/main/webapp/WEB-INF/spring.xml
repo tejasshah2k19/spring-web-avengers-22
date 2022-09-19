@@ -32,8 +32,6 @@
 		<property name="dataSource" ref="connection"></property>
 	</bean>
 
-	<bean class="com.dao.UserDao" id="userDao">
-
-	</bean>
+ 
 
 </beans>

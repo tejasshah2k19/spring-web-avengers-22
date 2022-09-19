@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CalcBean;
 import com.bean.UserBean;
@@ -61,7 +62,8 @@ public class SessionController {
 			userDao.insertUser(user);
 			// Model
 			model.addAttribute("user", user); // request.setAttribute("user",user);
-			return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
+			//return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
+			return "redirect:/listusers"; //url => listusers 
 		}
 	}
 	//
@@ -102,4 +104,18 @@ public class SessionController {
 		model.addAttribute("users",users);
 		return "ListUser";
 	}
+	
+	@GetMapping("/deleteuser")
+	public String deleteUser(@RequestParam("userId") int userId) {
+
+		//
+		userDao.deleteUser(userId);
+		
+		
+		return "redirect:/listusers";
+	}
+	
+	
+	
+	
 }

@@ -17,6 +17,7 @@
 			<th>FirstName</th>
 			<th>Email</th>
 			<th>Password</th>
+			<th>Action</th>
 		</tr>
 
 
@@ -29,6 +30,7 @@
 				<td>${user.firstName }</td>
 				<td>${user.email }</td>
 				<td>${user.password }</td>
+				<td><a href="deleteuser?userId=${user.userId}"> Delete</a></td>
 			</tr>
 		</c:forEach>
 
