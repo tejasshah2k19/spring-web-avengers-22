@@ -10,7 +10,8 @@
 </head>
 <body>
 	<h2>User List</h2>
-
+	
+	<a href="searchuser">Search</a>
 	<table border="1">
 		<tr>
 			<th>UserId</th>

@@ -62,8 +62,9 @@ public class SessionController {
 			userDao.insertUser(user);
 			// Model
 			model.addAttribute("user", user); // request.setAttribute("user",user);
-			//return "Home";// request.getRequestDispatcher("Login.jsp").forward(request,response);
-			return "redirect:/listusers"; //url => listusers 
+			// return "Home";//
+			// request.getRequestDispatcher("Login.jsp").forward(request,response);
+			return "redirect:/listusers"; // url => listusers
 		}
 	}
 	//
@@ -99,23 +100,32 @@ public class SessionController {
 
 	@GetMapping("/listusers")
 	public String listUsers(Model model) {
-	 
-		List<UserBean> users = userDao.getAllUsers(); 	
-		model.addAttribute("users",users);
+
+		List<UserBean> users = userDao.getAllUsers();
+		model.addAttribute("users", users);
 		return "ListUser";
 	}
-	
+
 	@GetMapping("/deleteuser")
 	public String deleteUser(@RequestParam("userId") int userId) {
 
 		//
 		userDao.deleteUser(userId);
-		
-		
+
 		return "redirect:/listusers";
 	}
-	
-	
-	
-	
+
+	@GetMapping("/searchuser")
+	public String searchUser() {
+		return "SearchUser";
+	}
+
+	@GetMapping("/searchuserbyname")
+	public String searchUserByName(@RequestParam("search") String search, Model model) {
+
+		List<UserBean> users = userDao.getUserByName(search);
+		model.addAttribute("users", users);
+		return "ListUser";
+	}
+
 }

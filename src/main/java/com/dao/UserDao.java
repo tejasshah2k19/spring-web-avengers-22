@@ -24,6 +24,11 @@ public class UserDao {
 		return users;
 	}
 
+	public List<UserBean> getUserByName(String search) {
+		List<UserBean> users = stmt.query("select * from users where firstname like ? ", new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {search});
+		return users;
+	}
+	
 	public void deleteUser(int userId) {
 		stmt.update("delete from users where userid = ?",userId);
 	}
